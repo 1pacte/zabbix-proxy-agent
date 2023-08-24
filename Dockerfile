@@ -82,7 +82,8 @@ RUN set -eux && \
     mkdir -p /var/lib/zabbix/ssl/certs && \
     mkdir -p /var/lib/zabbix/ssl/keys && \
     mkdir -p /var/lib/zabbix/ssl/ssl_ca && \
-    chown --quiet -R zabbix:root /etc/zabbix/ /var/lib/zabbix/ && \
+    mkdir -p /run/zabbix && \
+    chown --quiet -R zabbix:root /etc/zabbix/ /var/lib/zabbix/ /run/zabbix && \
     chgrp -R 0 /etc/zabbix/ /var/lib/zabbix/ && \
     chmod -R g=u /etc/zabbix/ /var/lib/zabbix/ && \
     apt-get -y autoremove
