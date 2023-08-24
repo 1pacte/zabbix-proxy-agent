@@ -101,6 +101,8 @@ COPY SNMPv2-PDU /var/lib/mibs/ietf/SNMPv2-PDU
 
 COPY ["docker-entrypoint.sh", "/usr/bin/"]
 
+RUN ["chmod", "+x", "/usr/bin/docker-entrypoint.sh"]
+
 ENTRYPOINT ["/usr/bin/tini", "--", "/usr/bin/docker-entrypoint.sh"]
 
 USER 1997
