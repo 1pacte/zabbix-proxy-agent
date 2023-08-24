@@ -6,13 +6,11 @@ ENV TERM=xterm ZBX_VERSION=6.0.21 ZBX_SOURCES=https://git.zabbix.com/scm/zbx/zab
 
 RUN apt-get -y update && apt-get install -y zabbix-agent
 
-RUN service zabbix-agent start
-
-RUN update-rc.d zabbix-agent enable
+COPY docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 
 COPY SNMPv2-PDU /var/lib/mibs/ietf/SNMPv2-PDU
 
-ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini" "--" "/usr/bin/docker-entrypoint.sh"]
 
 USER 1997
 
