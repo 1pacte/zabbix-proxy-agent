@@ -85,10 +85,11 @@ RUN set -eux && \
     chown --quiet -R zabbix:root /etc/zabbix/ /var/lib/zabbix/ && \
     chgrp -R 0 /etc/zabbix/ /var/lib/zabbix/ && \
     chmod -R g=u /etc/zabbix/ /var/lib/zabbix/ && \
-    apt-get -y autoremove && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get -y autoremove
 
 RUN apt-get install -y zabbix-agent
+
+RUN rm -rf /var/lib/apt/lists/*
 
 EXPOSE 10051/TCP
 
