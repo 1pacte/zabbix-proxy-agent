@@ -12,7 +12,7 @@ RUN update-rc.d zabbix-agent enable
 
 COPY SNMPv2-PDU /var/lib/mibs/ietf/SNMPv2-PDU
 
-ENTRYPOINT ["/usr/bin/tini" "--" "/usr/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
 
 USER 1997
 
