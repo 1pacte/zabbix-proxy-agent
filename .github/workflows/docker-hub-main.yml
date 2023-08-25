@@ -26,7 +26,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: issugo/zabbix-proxy-agent
+          images: 1pacte/zabbix-proxy-agent
         tags: |
           type=raw,value=latest
           type=raw,value=main
